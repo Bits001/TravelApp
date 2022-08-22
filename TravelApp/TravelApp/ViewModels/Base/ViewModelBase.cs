@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace TravelApp.ViewModels.Base
 {
-    internal class ViewModelBase
+    public class ViewModelBase : BindableObject
     {
+        public virtual Task InitializeAsync(object navigationData)
+        {
+            return Task.FromResult(false);
+        }
     }
 }

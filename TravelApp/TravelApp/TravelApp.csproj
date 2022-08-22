@@ -11,8 +11,38 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <None Remove="Resources\Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <None Remove="Resources\Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <None Remove="Resources\Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\Fonts\PoppinsRegular.ttf" />
+    <None Remove="Resources\Images\japan1.jpg" />
+    <None Remove="Resources\Images\korea1.jpg" />
+    <None Remove="Resources\Images\thailand.jpg" />
+    <None Remove="Resources\Images\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Resources\Images\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <EmbeddedResource Include="Resources\Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <EmbeddedResource Include="Resources\Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsRegular.ttf" />
+    <EmbeddedResource Include="Resources\Images\japan1.jpg" />
+    <EmbeddedResource Include="Resources\Images\korea1.jpg" />
+    <EmbeddedResource Include="Resources\Images\thailand.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>

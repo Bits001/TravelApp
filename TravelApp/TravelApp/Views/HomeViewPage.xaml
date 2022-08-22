@@ -1,12 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage x:Class="TravelApp.Views.HomeViewPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimage="clr-namespace:FFImageLoading;assembly=FFImageLoading"
+             xmlns:fontawesome="clr-namespace:TravelApp.Resources.Fonts"
+             xmlns:localimages="clr-namespace:TravelApp.Resources.Images"
+             xmlns:viewmodels="clr-namespace:TravelApp.ViewModels"
+             x:DataType="viewmodels:HomeViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label HorizontalOptions="CenterAndExpand"
-                   Text="Welcome to Xamarin.Forms!"
-                   VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,Auto">
+                <!--  Profile  -->
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Image Source="{localimages:ImageResource TravelApp.Resources.Images.user.png}"
+                           >
+                        <Image.Clip>
+                            <EllipseGeometry />
+                        </Image.Clip>
+                    </Image>
+                </Grid>
+                <!--  Search  -->
+                <!--  Recommend  -->
+                <!--  Top Destination  -->
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

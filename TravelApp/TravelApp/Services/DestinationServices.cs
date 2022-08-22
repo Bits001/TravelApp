@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using TravelApp.Models;
+using TravelApp.Resources.Images;
+using Xamarin.Forms;
 
 namespace TravelApp.Services
 {
@@ -26,17 +29,17 @@ namespace TravelApp.Services
                 {
                     new GalleryItems
                     {
-                        Id = 1, 
-                        Image = "japan1.jpg"
+                        Id = 1,
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                     },
                     new GalleryItems
                     {
-                        Id = 1, 
-                        Image = "korea1.jpg"
+                        Id = 1,
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.korea1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                     },
                     new GalleryItems{
-                        Id = 1, 
-                        Image = "thailand.jpg"
+                        Id = 1,
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.thailand.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                     },
                 };
             }
@@ -52,7 +55,7 @@ namespace TravelApp.Services
                     new Destination
                     {
                         Name="Mount Fuji Japan cherry blossom",
-                        Image="japan1.jpg",
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="Shizuoka, Japan",
                         About="In Shizuoka you can enjoy a sweeping landscape of cherry blossoms with Mt. Fuji",
                         Gallery=Gallery,
@@ -61,7 +64,7 @@ namespace TravelApp.Services
                     new Destination
                     {
                         Name="South Korea",
-                        Image="korea1.jpg",
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.korea1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="Paju, South Korea",
                         About="Paju Book City is one of the most popular places to visit and one of the most well-known things to do in Paju",
                         Gallery=Gallery,
@@ -70,7 +73,7 @@ namespace TravelApp.Services
                      new Destination
                     {
                         Name="Thailand",
-                        Image="thailand.jpg",
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.thailand.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="To Koh Samui, Thailand",
                         About="a small rocky island just north of Bophut. Its golden, 12-metre-tall seated Buddha statue, which dates back to 1972, is one of Samui's most popular attractions.",
                         Gallery=Gallery,
@@ -90,7 +93,7 @@ namespace TravelApp.Services
                     new Destination
                     {
                         Name="Japan",
-                        Image="japan1.jpg",
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="Shizuoka, Japan",
                         About="In Shizuoka you can enjoy a sweeping landscape of cherry blossoms with Mt. Fuji",
                         Gallery=Gallery,
@@ -99,7 +102,7 @@ namespace TravelApp.Services
                     new Destination
                     {
                         Name="South Korea",
-                        Image="korea1.jpg",
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.korea1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="Paju, South Korea",
                         About="Paju Book City is one of the most popular places to visit and one of the most well-known things to do in Paju",
                         Gallery=Gallery,
@@ -108,7 +111,7 @@ namespace TravelApp.Services
                     new Destination
                     {
                         Name="Thailand",
-                        Image="thailand.jpg",
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.thailand.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="To Koh Samui, Thailand",
                         About="a small rocky island just north of Bophut. Its golden, 12-metre-tall seated Buddha statue, which dates back to 1972, is one of Samui's most popular attractions.",
                         Gallery=Gallery,
