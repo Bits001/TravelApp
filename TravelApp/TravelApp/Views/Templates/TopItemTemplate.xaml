@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="TravelApp.Views.Templates.TopItemTemplate"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:TravelApp.Models"
+             xmlns:viewmodel="clr-namespace:TravelApp.ViewModels">
+    <ContentView.BindingContext>
+        <models:Destination />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TopBorder"
+                   TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="6" />
+                <Setter Property="Margin" Value="0, 0, 40, 0" />
+            </Style>
+
+
+            <Style x:Key="TopContainer"
+                   TargetType="Grid">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="10, 0" />
+            </Style>
+
+
+            <Style x:Key="ImageStyle"
+                   TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFill" />
+            </Style>
+
+            <Style x:Key="PlaceStyle"
+                   TargetType="Label">
+                <Setter Property="FontFamily" Value="pbold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+
+            <Style x:Key="TextStyle"
+                   TargetType="Label">
+                <Setter Property="FontFamily" Value="pbold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+
+
+    <ContentView.Content>
+        <Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}}, Path=DetailCommand}"
+                                      CommandParameter="{Binding}" />
+
+
+            </Grid.GestureRecognizers>
+
+            <Frame Style="{StaticResource TopBorder}">
+                <Grid ColumnDefinitions="70,*">
+
+                    <Image Source="{Binding Image}"
+                           Style="{StaticResource ImageStyle}">
+                        <Image.Clip>
+                            <RoundRectangleGeometry CornerRadius="12"
+                                                    Rect="1,1,60,60" />
+                        </Image.Clip>
+                    </Image>
+
+                    <Grid Grid.Column="1"
+                          RowDefinitions="Auto, Auto"
+                          Style="{StaticResource TopContainer}">
+
+                        <Label Style="{StaticResource PlaceStyle}"
+                               Text="{Binding Place}" />
+
+                        <Label Grid.Row="1"
+                               Style="{StaticResource TextStyle}"
+                               Text="{Binding Name}" />
+                    </Grid>
+
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

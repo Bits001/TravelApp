@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using TravelApp.Models;
 using TravelApp.Resources.Images;
 using Xamarin.Forms;
@@ -11,12 +9,14 @@ namespace TravelApp.Services
     public class DestinationServices
     {
         static DestinationServices _instance;
+
         public static DestinationServices Instance
         {
             get
             {
                 if(_instance == null)
                     _instance = new DestinationServices();  
+
                 return _instance;
             }
         }
@@ -34,13 +34,13 @@ namespace TravelApp.Services
                     },
                     new GalleryItems
                     {
-                        Id = 1,
+                        Id = 2,
                         Image = ImageSource.FromResource("TravelApp.Resources.Images.korea1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                     },
                     new GalleryItems{
-                        Id = 1,
+                        Id = 3,
                         Image = ImageSource.FromResource("TravelApp.Resources.Images.thailand.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
-                    },
+                    }
                 };
             }
 
@@ -52,14 +52,12 @@ namespace TravelApp.Services
             {
                 return new List<Destination>
                 {
-                    new Destination
-                    {
-                        Name="Mount Fuji Japan cherry blossom",
-                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
+                    new Destination{ 
+                        Name="Japan", 
                         Place="Shizuoka, Japan",
                         About="In Shizuoka you can enjoy a sweeping landscape of cherry blossoms with Mt. Fuji",
-                        Gallery=Gallery,
-                        Price=200,
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
+                        Gallery=Gallery, Price=200, 
                     },
                     new Destination
                     {
@@ -70,7 +68,8 @@ namespace TravelApp.Services
                         Gallery=Gallery,
                         Price=1500,
                     },
-                     new Destination
+
+                    new Destination
                     {
                         Name="Thailand",
                         Image = ImageSource.FromResource("TravelApp.Resources.Images.thailand.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
@@ -79,13 +78,13 @@ namespace TravelApp.Services
                         Gallery=Gallery,
                         Price=1000,
                     }
-
                 };
             }
         }
 
         public List<Destination> TopDestination
         {
+
             get
             {
                 return new List<Destination>
@@ -93,11 +92,10 @@ namespace TravelApp.Services
                     new Destination
                     {
                         Name="Japan",
-                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
                         Place="Shizuoka, Japan",
                         About="In Shizuoka you can enjoy a sweeping landscape of cherry blossoms with Mt. Fuji",
-                        Gallery=Gallery,
-                        Price=200,
+                        Image = ImageSource.FromResource("TravelApp.Resources.Images.japan1.jpg", typeof(ImageResourceExtension).GetTypeInfo().Assembly),
+                        Gallery=Gallery, Price=200,
                     },
                     new Destination
                     {
@@ -118,8 +116,8 @@ namespace TravelApp.Services
                         Price=1000,
                     }
                 };
-
             }
+            
         }
             
     }

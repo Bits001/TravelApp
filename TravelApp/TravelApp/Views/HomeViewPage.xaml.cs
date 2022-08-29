@@ -9,6 +9,7 @@ namespace TravelApp.Views
         public HomeViewPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

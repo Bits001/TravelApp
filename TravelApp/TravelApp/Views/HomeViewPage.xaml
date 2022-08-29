@@ -2,27 +2,172 @@
 <ContentPage x:Class="TravelApp.Views.HomeViewPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ffimage="clr-namespace:FFImageLoading;assembly=FFImageLoading"
+             xmlns:detination="clr-namespace:TravelApp.Services"
              xmlns:fontawesome="clr-namespace:TravelApp.Resources.Fonts"
              xmlns:localimages="clr-namespace:TravelApp.Resources.Images"
-             xmlns:viewmodels="clr-namespace:TravelApp.ViewModels"
-             x:DataType="viewmodels:HomeViewModel">
+             xmlns:temmplates="clr-namespace:TravelApp.Views.Templates"
+             xmlns:viewmodels="clr-namespace:TravelApp.ViewModels">
+    <ContentPage.BindingContext>
+        <detination:DestinationServices />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Color x:Key="AccentColor">#5AAAF2</Color>
+
+        <Style x:Key="FilterButtonStyle"
+               TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}" />
+            <Setter Property="CornerRadius" Value="18" />
+            <Setter Property="HasShadow" Value="False" />
+        </Style>
+
+        <Style x:Key="FilterContainer"
+               TargetType="Grid">
+            <Setter Property="HeightRequest" Value="54" />
+            <Setter Property="Margin" Value="0,10" />
+
+        </Style>
+
+        <Style x:Key="SearchConrtainer"
+               TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="HasShadow" Value="False" />
+        </Style>
+
+        <Style x:Key="SearchStyle"
+               TargetType="SearchBar">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="Rock" />
+        </Style>
+
+
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <Grid RowDefinitions="Auto,Auto,Auto">
+            <Grid Padding="30"
+                  RowDefinitions="Auto, Auto, 320, 130">
+
                 <!--  Profile  -->
-                <Grid ColumnDefinitions="Auto,*,Auto">
-                    <Image Source="{localimages:ImageResource TravelApp.Resources.Images.user.png}"
-                           >
+
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="Auto,*,Auto">
+                    <Image Source="{localimages:ImageResource TravelApp.Resources.Images.japan1.jpg}"
+                           VerticalOptions="Center">
                         <Image.Clip>
-                            <EllipseGeometry />
+                            <EllipseGeometry Center="30,30"
+                                             RadiusX="30"
+                                             RadiusY="30" />
                         </Image.Clip>
                     </Image>
+
+                    <Grid Grid.Column="1"
+                          RowDefinitions="Auto,Auto"
+                          RowSpacing="0">
+                        <Label FontFamily="preg"
+                               FontSize="14"
+                               Text="Welcome"
+                               VerticalOptions="Center" />
+
+                        <Label Grid.Row="1"
+                               FontFamily="pbold"
+                               FontSize="17"
+                               Text="John"
+                               TextColor="Black"
+                               VerticalOptions="Center" />
+
+
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label FontFamily="fas"
+                               FontSize="30"
+                               Text="{x:Static fontawesome:FontAwesomeIcons.Bell}" />
+                    </Grid>
+
                 </Grid>
                 <!--  Search  -->
+                <Grid Grid.Row="1"
+                      ColumnDefinitions="*,Auto"
+                      Style="{StaticResource FilterContainer}">
+
+                    <Frame Style="{StaticResource SearchConrtainer}">
+                        <SearchBar Placeholder="Search Destination"
+                                   Style="{StaticResource SearchStyle}" />
+                    </Frame>
+                    <Frame Grid.Column="1"
+                           Style="{StaticResource FilterButtonStyle}">
+
+                        <Label FontFamily="fas"
+                               FontSize="18"
+                               Text="{x:Static fontawesome:FontAwesomeIcons.Filter}" />
+                    </Frame>
+                </Grid>
+
                 <!--  Recommend  -->
+
+                <Grid Grid.Row="2"
+                      RowDefinitions="Auto, *">
+
+                    <Grid ColumnDefinitions="*, Auto">
+
+                        <Label FontFamily="pbold"
+                               FontSize="20"
+                               Text="Recommended"
+                               TextColor="Black" />
+
+                        <Label Grid.Column="1"
+                               CharacterSpacing="2"
+                               FontSize="20"
+                               Text="..." />
+                    </Grid>
+
+                    <CollectionView Grid.Row="1"
+                                    ItemsSource="{Binding RecommendedDestinations}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <temmplates:RecommendedTemplate />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </Grid>
+
                 <!--  Top Destination  -->
+                <Grid Grid.Row="3"
+                      RowDefinitions="Auto,*">
+
+                    <Grid ColumnDefinitions="*, Auto">
+
+                        <Label FontFamily="pbold"
+                               FontSize="20"
+                               Text="Top Destination"
+                               TextColor="Black" />
+
+                        <Label Grid.Column="1"
+                               Margin="0"
+                               CharacterSpacing="2"
+                               FontSize="20"
+                               Text="..." />
+                    </Grid>
+                    <CollectionView Grid.Row="1"
+                                    ItemsSource="{Binding TopDestination}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <temmplates:TopItemTemplate />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
             </Grid>
+
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

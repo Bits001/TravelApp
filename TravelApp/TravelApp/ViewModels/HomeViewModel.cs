@@ -1,7 +1,12 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Reflection;
+using System.Windows.Input;
 using TravelApp.Models;
+using TravelApp.Resources.Images;
 using TravelApp.Services;
 using TravelApp.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace TravelApp.ViewModels
 {
@@ -13,8 +18,11 @@ namespace TravelApp.ViewModels
         public HomeViewModel()
         {
             LoadData();
-        }
 
+
+        }
+     
+     
         public ObservableCollection<Destination> RecommendedDestinations
         {
             get
@@ -29,7 +37,7 @@ namespace TravelApp.ViewModels
             
         }
 
-        public ObservableCollection<Destination> TopDestinations
+        public ObservableCollection<Destination> TopDestination
         {
             get
             {
@@ -43,11 +51,17 @@ namespace TravelApp.ViewModels
 
             }
         }
+        public ICommand DetailCommand => new Command<Destination>(OnNavigate);
 
-        void LoadData()
+        public void LoadData()
         {
             RecommendedDestinations = new ObservableCollection<Destination>(DestinationServices.Instance.RecommendedDestinations);
-            TopDestinations = new ObservableCollection<Destination>(DestinationServices.Instance.TopDestination);
+            TopDestination = new ObservableCollection<Destination>(DestinationServices.Instance.TopDestination);
+        }
+
+        void OnNavigate(Destination parameter)
+        {
+            NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
         }
     }
 }

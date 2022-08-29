@@ -16,6 +16,7 @@
     <None Remove="Resources\Fonts\Font Awesome 5 Free-Solid-900.otf" />
     <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
     <None Remove="Resources\Fonts\PoppinsRegular.ttf" />
+    <None Remove="Resources\Fonts\rockoflf.ttf" />
     <None Remove="Resources\Images\japan1.jpg" />
     <None Remove="Resources\Images\korea1.jpg" />
     <None Remove="Resources\Images\thailand.jpg" />
@@ -32,12 +33,14 @@
     <EmbeddedResource Include="Resources\Fonts\Font Awesome 5 Free-Solid-900.otf" />
     <EmbeddedResource Include="Resources\Fonts\Poppins-Bold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\PoppinsRegular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\rockoflf.ttf" />
     <EmbeddedResource Include="Resources\Images\japan1.jpg" />
     <EmbeddedResource Include="Resources\Images\korea1.jpg" />
     <EmbeddedResource Include="Resources\Images\thailand.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
@@ -50,6 +53,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomeViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\GalleryTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\RecommendedTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\TopItemTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

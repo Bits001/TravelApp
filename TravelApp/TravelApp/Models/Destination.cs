@@ -4,6 +4,12 @@ using System.Text;
 
 namespace TravelApp.Models
 {
+    public class GalleryItems
+    {
+        public int Id { get; set; }
+        public object Image { get; set; }
+    }
+
     public class Destination
     {
         public string Name { get; set; }
@@ -15,9 +21,5 @@ namespace TravelApp.Models
 
     }
 
-    public class GalleryItems
-    {
-        public int Id { get; set; }
-        public object Image { get; set; }
-    }
+   
 }
