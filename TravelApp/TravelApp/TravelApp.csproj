@@ -21,6 +21,7 @@
     <None Remove="Resources\Images\korea1.jpg" />
     <None Remove="Resources\Images\thailand.jpg" />
     <None Remove="Resources\Images\user.png" />
+    <None Remove="Resources\Images\user1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,7 @@
     <EmbeddedResource Include="Resources\Images\japan1.jpg" />
     <EmbeddedResource Include="Resources\Images\korea1.jpg" />
     <EmbeddedResource Include="Resources\Images\thailand.jpg" />
+    <EmbeddedResource Include="Resources\Images\user1.png" />
   </ItemGroup>
 
   <ItemGroup>
